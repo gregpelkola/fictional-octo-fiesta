@@ -33,7 +33,7 @@ function ToDoList() {
                         <button type="submit" className="addTodoButton">Add it to the List brother</button>
                     </div>
                 </form>
-                <ul className="todoItems">
+                <ul className="todoItemsContainer">
                     {todos.map((todo) => (
                         <li key={todo.id} className="todoItem">
                             {todo.text}
