@@ -29,6 +29,13 @@ body {
     font-size: 32px;
 }
 
+.inputButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
 .todoInput {
     flex-grow: 1;
     margin-right: 10px;
@@ -37,12 +44,11 @@ body {
 
 .addTodoButton {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     background-color: #4f5d75;
     color: #ffffff;
     padding: 10px 20px;
     margin: 10px 0;
-    margin-bottom: 10px;
     border: none;
     cursor: pointer;
     font-size: 16px;
@@ -56,13 +62,34 @@ body {
 
 .todoItem {
     margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
     background-color: #4f5d75;
     border-radius: 4px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
+    list-style-type: none;
 }
 
 .todoItem:hover {
     transform: scale(1.02);
+}
+
+.deleteTaskButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff5e5b;
+    color: #ffffff;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.deleteTaskButton:hover {
+    background-color: #c9302c;
 }

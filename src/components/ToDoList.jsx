@@ -7,31 +7,42 @@ function ToDoList() {
 
     const addTodo = (e) => {
         e.preventDefault();
-        setTodos([...todos, input]);
+        const newTodo = {
+            id: Date.now(), // Unique identifier for each todo
+            text: input,
+        };
+        setTodos([...todos, newTodo]);
         setInput('');
     };
 
+    const deleteTodo = (id) => {
+        setTodos(todos.filter(todo => todo.id !== id));
+    };
+
     return (
-        <body>
-            <div className="appContainer">
-                <div className="todoListContainer">
-                    <h2 className="listTitle">The List, all praise the List</h2>
-                    <form onSubmit={addTodo} className="todoForm">
+        <div className="appContainer">
+            <div className="todoListContainer">
+                <h2 className="listTitle">The List, all praise the List</h2>
+                <form onSubmit={addTodo} className="todoForm">
+                    <div className="inputButtonContainer">
                         <input
                             className="todoInput" 
                             value={input}
                             onChange={(e) => setInput(e.target.value)} 
                         />
                         <button type="submit" className="addTodoButton">Add it to the List brother</button>
-                    </form>
-                    <ul className="todoItems">
-                        {todos.map((todo, index) => (
-                            <li key={index} className="todoItem">{todo}</li>
-                        ))}
-                    </ul>
-                </div>
+                    </div>
+                </form>
+                <ul className="todoItems">
+                    {todos.map((todo) => (
+                        <li key={todo.id} className="todoItem">
+                            {todo.text}
+                            <button className="deleteTaskButton" onClick={() => deleteTodo(todo.id)}>Delete</button>
+                        </li>
+                    ))}
+                </ul>
             </div>
-        </body>
+        </div>
     );
 }
 
